@@ -35,6 +35,7 @@
 
     .print-logo {
         height: 60px;
+        width: auto;
         margin-bottom: 6px;
     }
 
