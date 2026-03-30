@@ -15,8 +15,10 @@
     <img src="firmenlogo.png" class="logo">
     <div class="title">Besucheranmeldung</div>
     <?php if (!isset($_SESSION['user'])): ?>
-    <button class="button" onclick="openAuschecken()">Auschecken</button>
-    <button class="button" onclick="openEvakuierung()">Evakuierung</button>
+    <div class="topright">
+        <button class="loginbutton" onclick="openAuschecken()">Auschecken</button>
+        <button class="loginbutton" onclick="openEvakuierung()">Evakuierung</button>
+    </div>
     <button class="button" onclick="openRegister()">Anmelden</button>
     <div class="notice">
         <b><u>Datenschutzhinweis:</b></u><br><br> Mit Klick auf "Akzeptieren & Speichern" haben Sie die
@@ -25,7 +27,9 @@
     </div>
     <?php endif; ?>
     <?php if (isset($_SESSION['user'])): ?>
-    <button class="loginbutton" onclick="fetch('logout.php').then(()=>location.reload())">Logout</button>
+    <div class="topright">
+        <button class="loginbutton" onclick="fetch('logout.php').then(()=>location.reload())">Logout</button>
+    </div>
     <h2>Anwesenheitsliste</h2>
     <div id="stats"></div>
     <br>
