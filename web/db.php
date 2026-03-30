@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Europe/Berlin');
+
 session_start();
 
 $db = new PDO("sqlite:/database/visitors.db");

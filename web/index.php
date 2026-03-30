@@ -29,8 +29,7 @@
     <h2>Anwesenheitsliste</h2>
     <div id="stats"></div>
     <br>
-    <button class="button" onclick="window.open('export_pdf.php')">PDF</button>
-    <button class="button" onclick="window.open('print_view.php')">Drucken</button>
+<button class="button" onclick="window.open('print_view.php')">Drucken</button>
     <div id="visitorList"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
