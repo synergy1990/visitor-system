@@ -1,0 +1,210 @@
+body {
+  background: white;
+  font-family: Arial;
+  text-align: center;
+  color: black;
+}
+
+.logo {
+  height: 100px;
+  margin-top: 30px;
+}
+
+.title {
+  font-size: 40px;
+  margin: 20px;
+}
+
+.loginbutton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #c00d0d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.button {
+  background: #c00d0d;
+  color: white;
+  border: none;
+  margin: 30px;
+  padding: 18px 50px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.notice {
+  background: #c0c0c0;
+  text-align: left;
+  padding: 15px;
+  width: 720px;
+  margin: 20px auto;
+}
+
+/* Anwesenheitsliste */
+
+.row {
+  background: #c0c0c0;
+  padding: 20px;
+  margin: 10px auto;
+  width: 70%;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.info {
+  text-align: left;
+}
+
+/* MODALS */
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background: white;
+  margin: 3% auto;
+  padding: 20px;
+  width: 1280px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Formular Grid */
+
+.formgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field.full {
+  grid-column: 1/3;
+}
+
+.center {
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+}
+
+.status span {
+  font-size: 40px;
+}
+
+/* Personen Counter */
+
+.counter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.counter input {
+  width: 80px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.counter button {
+  background: #c00d0d;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+/* PIN PAD */
+
+.pinfield {
+  font-size: 26px;
+  padding: 12px;
+  width: 180px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pinpad {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.pinbtn {
+  background: #c00d0d;
+  color: white;
+  border: none;
+  height: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.fullscreen {
+  width: 95%;
+  height: 90%;
+}
+
+.safetyframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  zoom: 1.25;
+  line-height: 1, 5;
+}
+
+.safetyfooter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* verhindert Überlappen */
+
+.keyboard-open .modal-content {
+  margin-bottom: 260px;
+}
+
+/* aktives Feld */
+
+.active-input {
+  border: 3px solid #c00d0d !important;
+  background: #f5f5f5;
+}

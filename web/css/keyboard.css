@@ -1,0 +1,84 @@
+#keyboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #c0c0c0;
+  padding: 15px 15px 25px 15px;
+  z-index: 9999;
+}
+
+/* Close Button */
+
+#kb-close {
+  position: absolute;
+  top: 5px;
+  right: 60px; /* weiter nach links */
+  background: #c00d0d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.kb-row {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.kb-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #c00d0d;
+  color: white;
+  border: none;
+  margin: 4px;
+
+  width: 70px;
+  height: 70px;
+
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.kb-key:active {
+  opacity: 0.7;
+}
+
+/* Breiten */
+
+.kb-wide2 {
+  width: 140px;
+}
+
+.kb-space {
+  width: 700px;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .kb-key {
+    width: 55px;
+    height: 55px;
+    font-size: 16px;
+  }
+
+  .kb-wide2 {
+    width: 110px;
+  }
+
+  .kb-space {
+    width: 240px;
+  }
+}
+
+.kb-active {
+  background: #8a0000 !important; /* dunkleres Rot */
+}
