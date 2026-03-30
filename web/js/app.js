@@ -241,8 +241,49 @@ function loadVisitors() {
                 " &nbsp;&nbsp; <b>Anwesend:</b> " + s.present +
                 " &nbsp;&nbsp; <b>Abwesend:</b> " + s.absent
 
+
+            /* Druckansicht aktualisieren */
+
+            updatePrintView(data.visitors, s)
+
         })
 
+}
+
+
+function updatePrintView(visitors, stats) {
+
+    document.getElementById("printDate").textContent =
+        "Erstellt: " + new Date().toLocaleString("de-DE")
+
+    document.getElementById("printStats").textContent =
+        "Gesamtbesucher: " + stats.total +
+        "   |   Anwesend: " + stats.present +
+        "   |   Abwesend: " + stats.absent
+
+    let tbody = document.getElementById("printTableBody")
+    tbody.innerHTML = ""
+
+    visitors.forEach((v, i) => {
+        let tr = document.createElement("tr")
+        if (i % 2 !== 0) tr.className = "alt-row"
+        let statusColor = v.status === "present" ? "green" : "red"
+        tr.innerHTML =
+            "<td><span class='print-status' style='color:" + statusColor + "'>●</span></td>" +
+            "<td>" + v.lastname + ", " + v.firstname + "</td>" +
+            "<td>" + (v.company || "") + "</td>" +
+            "<td>" + v.persons + "</td>" +
+            "<td>" + (v.contact || "") + "</td>" +
+            "<td>" + v.checkin + "</td>" +
+            "<td>" + (v.checkout ?? "-") + "</td>"
+        tbody.appendChild(tr)
+    })
+
+}
+
+
+function printVisitors() {
+    window.print()
 }
 
 

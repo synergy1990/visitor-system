@@ -11,7 +11,9 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $timeout = 30;
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout) {
+    session_unset();
     session_destroy();
+    session_start();
 }
 
 $_SESSION['LAST_ACTIVITY'] = time();

@@ -1,0 +1,88 @@
+#printView {
+    display: none;
+}
+
+@media print {
+
+    /* Alles außer der Druckansicht ausblenden */
+    body > *:not(#printView) {
+        display: none !important;
+    }
+
+    #printView {
+        display: block !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        font-size: 11pt;
+        color: black;
+        background: white;
+        text-align: left;
+    }
+
+    /* Kopfzeile */
+
+    .print-header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .print-logo {
+        height: 60px;
+        margin-bottom: 6px;
+    }
+
+    .print-title {
+        font-size: 20pt;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    .print-date {
+        font-size: 9pt;
+        color: #555;
+        margin-bottom: 4px;
+    }
+
+    .print-stats {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    /* Tabelle */
+
+    .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10pt;
+    }
+
+    .print-table th {
+        background: #444;
+        color: white;
+        padding: 6px 8px;
+        text-align: left;
+        border: 1px solid #333;
+    }
+
+    .print-table td {
+        padding: 5px 8px;
+        border: 1px solid #aaa;
+        vertical-align: middle;
+    }
+
+    .print-table tr.alt-row td {
+        background: #f0f0f0;
+    }
+
+    .print-status {
+        font-size: 14pt;
+    }
+
+}

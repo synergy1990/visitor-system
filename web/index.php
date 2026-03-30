@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/keyboard.css">
+    <link rel="stylesheet" href="css/print.css">
     <script src="js/keyboard.js"></script>
     <script src="js/app.js"></script>
 </head>
@@ -30,6 +31,7 @@
     <div id="stats"></div>
     <br>
     <button class="button" onclick="window.open('export_pdf.php')">PDF</button>
+    <button class="button" onclick="printVisitors()">Drucken</button>
     <div id="visitorList"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -38,6 +40,29 @@
         });
     </script>
     <?php endif ?>
+    <!-- Druckansicht -->
+    <div id="printView">
+        <div class="print-header">
+            <img src="firmenlogo.png" class="print-logo">
+            <div class="print-title">Besucherliste</div>
+            <div class="print-date" id="printDate"></div>
+            <div class="print-stats" id="printStats"></div>
+        </div>
+        <table class="print-table">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Firma</th>
+                    <th>Personen</th>
+                    <th>Ansprechpartner</th>
+                    <th>Check-In</th>
+                    <th>Check-Out</th>
+                </tr>
+            </thead>
+            <tbody id="printTableBody"></tbody>
+        </table>
+    </div>
     <!-- Besucher Formular -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
