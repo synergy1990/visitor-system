@@ -14,10 +14,9 @@
 <body>
     <img src="firmenlogo.png" class="logo">
     <div class="title">Besucheranmeldung</div>
-    <button id="loginBtn" class="loginbutton" onclick="loginAction()">
-        <?php echo isset($_SESSION['user']) ? "Logout" : "Login"; ?>
-    </button>
     <?php if (!isset($_SESSION['user'])): ?>
+    <button class="button" onclick="openAuschecken()">Auschecken</button>
+    <button class="button" onclick="openEvakuierung()">Evakuierung</button>
     <button class="button" onclick="openRegister()">Anmelden</button>
     <div class="notice">
         <b><u>Datenschutzhinweis:</b></u><br><br> Mit Klick auf "Akzeptieren & Speichern" haben Sie die
@@ -26,10 +25,10 @@
     </div>
     <?php endif; ?>
     <?php if (isset($_SESSION['user'])): ?>
+    <button class="loginbutton" onclick="fetch('logout.php').then(()=>location.reload())">Logout</button>
     <h2>Anwesenheitsliste</h2>
     <div id="stats"></div>
     <br>
-<button class="button" onclick="window.open('print_view.php')">Drucken</button>
     <div id="visitorList"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

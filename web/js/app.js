@@ -81,23 +81,24 @@ function changePersons(val) {
 }
 
 
-/* Login / Logout */
+/* Auschecken / Evakuierung */
 
-function loginAction() {
+let pendingAction = null
 
-    let btn = document.getElementById("loginBtn")
+function openAuschecken() {
+    pendingAction = 'auschecken'
+    pin = ""
+    document.getElementById("pinInput").value = ""
+    document.getElementById("loginModal").style.display = "block"
+    createPinPad()
+}
 
-    if (btn.innerText === "Logout") {
-
-        fetch("logout.php").then(() => location.reload())
-
-    } else {
-
-        document.getElementById("loginModal").style.display = "block"
-        createPinPad()
-
-    }
-
+function openEvakuierung() {
+    pendingAction = 'evakuierung'
+    pin = ""
+    document.getElementById("pinInput").value = ""
+    document.getElementById("loginModal").style.display = "block"
+    createPinPad()
 }
 
 function closeLogin() {
@@ -164,16 +165,27 @@ function addPin(n) {
 
     if (pin.length === 4) {
 
+        let params = { pin: pin }
+        if (pendingAction === 'evakuierung') params.type = 'evacuation'
+
         fetch("login.php", {
             method: "POST",
-            body: new URLSearchParams({ pin: pin })
+            body: new URLSearchParams(params)
         })
             .then(r => r.text())
             .then(res => {
 
                 if (res === "ok") {
 
-                    location.reload()
+                    closeLogin()
+                    pin = ""
+                    document.getElementById("pinInput").value = ""
+
+                    if (pendingAction === 'evakuierung') {
+                        window.open('print_view.php')
+                    } else {
+                        location.reload()
+                    }
 
                 } else {
 

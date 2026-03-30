@@ -1,11 +1,15 @@
 <?php
 
-require "db.php";
+date_default_timezone_set('Europe/Berlin');
+session_start();
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['evacuation'])) {
     http_response_code(403);
     exit;
 }
+
+$db = new PDO("sqlite:/database/visitors.db");
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $data = $db->query("
 SELECT id, firstname, lastname, company, contact, persons, checkin, checkout, status
