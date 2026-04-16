@@ -18,6 +18,7 @@
     <div class="topright">
         <button class="loginbutton" onclick="openAuschecken()">Auschecken</button>
         <button class="loginbutton" onclick="openEvakuierung()">Evakuierung</button>
+        <button class="loginbutton" onclick="openWlan()">Gäste-WLAN</button>
     </div>
     <button class="button" onclick="openRegister()">Anmelden</button>
     <div class="notice">
@@ -97,6 +98,13 @@
             <h2>PIN eingeben</h2>
             <input id="pinInput" class="pinfield" readonly inputmode="none">
             <div id="pinpad" class="pinpad"></div>
+        </div>
+    </div>
+    <!-- Gäste-WLAN Modal -->
+    <div id="wlanModal" class="modal">
+        <div class="modal-content wlan-content">
+            <span class="close" onclick="closeWlan()">X</span>
+            <iframe src="https://verwaltung.romwell.lan/wlan/" class="wlanframe" frameborder="0"></iframe>
         </div>
     </div>
     <!-- Status Modal -->

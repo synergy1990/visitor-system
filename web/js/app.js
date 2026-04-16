@@ -81,6 +81,17 @@ function changePersons(val) {
 }
 
 
+/* Gäste-WLAN */
+
+function openWlan() {
+    document.getElementById("wlanModal").style.display = "block"
+}
+
+function closeWlan() {
+    document.getElementById("wlanModal").style.display = "none"
+}
+
+
 /* Auschecken / Evakuierung */
 
 let pendingAction = null
